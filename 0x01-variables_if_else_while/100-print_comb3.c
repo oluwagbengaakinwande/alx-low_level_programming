@@ -1,28 +1,31 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 /**
- * main - main function
- * Return
+ * main - Entyr point
+ * Description: prints two digits combination
+ * Return: Always 0 (success)
  */
-
 int main(void)
 {
-    int i, j;
+	int c, i;
 
-    for (i = 0; i < 9; i++)
-    {
-        for (j = i + 1; j <= 9; j++)
-        {
-            putchar(i + '0');
-            putchar(j + '0');
-            if (i != 8 || j != 9)
-            {
-                putchar(',');
-                putchar(' ');
-            }
-        }
-    }
-    putchar('\n');
+	for (c = '0'; c <= '9'; c++)
+	{
+		for (i = '0'; i <= '9'; i++)
+		{
+			if (c < i)
+			{
+				putchar(c);
+				putchar(i);
 
-    return 0;
+				if (c != '8' || (c == '8' && i != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
-
