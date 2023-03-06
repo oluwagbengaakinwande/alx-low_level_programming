@@ -5,6 +5,7 @@
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	int prev = 1, curr = 2, next, count;
@@ -16,8 +17,9 @@ int main(void)
 	printf(", %d", next);
 	prev = curr;
 	curr = next;
+	if (next > 20365011074)
+	break;
 	}
 	printf("\n");
-	
 	return 0;
 }
