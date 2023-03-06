@@ -10,9 +10,7 @@ int main(void)
 {
 	int prev = 1, curr = 2, next;
 	int count = 2;
-	
 	printf("%d, %d", prev, curr);
-	
 	while (count < 98)
 	{
 	next = prev + curr;
@@ -21,8 +19,6 @@ int main(void)
 	curr = next;
 	count++;
 	}
-	
 	printf("\n");
-	
 	return (0);
 }
