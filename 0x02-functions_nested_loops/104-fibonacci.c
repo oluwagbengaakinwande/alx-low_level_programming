@@ -7,6 +7,7 @@
  */
 
 int main(void)
+
 {
 	int prev = 1, curr = 2, next;
 	int count = 2;
