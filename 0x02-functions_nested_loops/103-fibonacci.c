@@ -11,7 +11,6 @@ int main(void)
 {
 	int prev = 1, curr = 2, next;
 	int sum = 2;
-		
 	/* initialize with 2 because curr is even */	
 	while (curr <= 4000000)
 	{
