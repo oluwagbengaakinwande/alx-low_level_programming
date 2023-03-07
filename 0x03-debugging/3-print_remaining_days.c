@@ -2,49 +2,35 @@
 #include "main.h"
 
 /**
- * print_remaining_days - Takes a date and prints how many days are
- *                        left in the year, taking leap years into account.
- *
- * @month: Month in number format.
- * @day: Day of month.
- * @year: Year.
- *
- * Return: void.
- */
+  * print_remaining_days - takes a date and prints how many days are
+  * left in the year, taking leap years into account
+  * @month: month in number format
+  * @day: day of month
+  * @year: year
+  * Return: void
+  */
 
 void print_remaining_days(int month, int day, int year)
 {
-	int days_remaining = 0;
-	int days_in_feb = 28;
-	
-	if (year % 4 == 0)
+	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+	{
+		if (month > 2 && day >= 60)
 		{
-		if (year % 100 == 0)
+			day++;
+		}
+		printf("Day of the year: %d\n", day);
+		printf("Remaining days: %d\n", 366 - day);
+	}
+	else
+	{
+		if (month == 2 && day == 60)
 		{
-		if (year % 400 == 0)
+		printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+		}
+		else
 		{
-		days_in_feb = 29;
+			printf("Day of the year: %d\n", day);
+			printf("Remaining days: %d\n", 365 - day);
 		}
 	}
-	else
-	{
-	days_in_feb = 29;
-	}
-	}
-	
-	if (month == 1)
-	{
-	days_remaining = 365 - day;
-	}
-	else if (month == 2)
-	{
-	days_remaining = 365 - (31 + day);
-	}
-	else
-	{
-	int days_in_month[] = {31, days_in_feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	days_remaining = 365 - day_of_year(month, day, days_in_month) - (days_in_feb - 28);
-	}
-	
-	printf("Remaining days: %d\n", days_remaining);
 }
