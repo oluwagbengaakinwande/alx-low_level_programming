@@ -1,25 +1,32 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
+ * main - finds and prints the sum of the even-valued terms
+ * followed by a new line
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	int prev = 1, curr = 2, next, count;
-	
-	printf("%d, %d", prev, curr);
-	for (count = 3; count <= 50; count++)
+	int i;
+	unsigned long int j, k, next, sum;
+
+	j = 1;
+	k = 2;
+	sum = 0;
+
+	for (i = 1; i <= 33; ++i)
 	{
-	next = prev + curr;
-	printf(", %d", next);
-	prev = curr;
-	curr = next;
-	if (next > 20365011074)
-	break;
+		if (j < 4000000 && (j % 2) == 0)
+		{
+			sum = sum + j;
+		}
+		next = j + k;
+		j = k;
+		k = next;
 	}
-	printf("\n");
-	return 0;
+
+	printf("%lu\n", sum);
+
+	return (0);
 }
